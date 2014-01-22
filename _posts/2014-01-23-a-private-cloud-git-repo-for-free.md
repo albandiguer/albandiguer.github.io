@@ -16,7 +16,7 @@ Well we can combine the power of Git and [Dropbox](http://dropbox.com) !
 
 # How to do that ?
 
-Well we need a [bare repository](http://git-scm.com/book/en/Git-on-the-Server-Getting-Git-on-a-Server) so we can clone from and push there when we want.
+We need a [bare repository](http://git-scm.com/book/en/Git-on-the-Server-Getting-Git-on-a-Server) so we can clone from and push there when we want.
 We want it _in the cloud_ so it will be located into our Dropbox directory.
 I am going to take the example of a PhD paper.
 
