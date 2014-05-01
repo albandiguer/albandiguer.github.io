@@ -15,7 +15,7 @@ I have been curious to try and implement a [code kata](http://codekatas.org/abou
 
 It is all about reinventing the wheel, as fast as you can. You are meant to implement a well-known problem or game and repeat it until you are fast and satisfied enough of the solution. The Karate Chop for example is no more, no less than the infamous [binary search algorithm](http://en.wikipedia.org/wiki/Binary_search_algorithm). It comes with a simple spec file, here :
 
-```
+```ruby
 def test_chop
   assert_equal(-1, chop(3, []))
   assert_equal(-1, chop(3, [1]))
@@ -47,7 +47,7 @@ end
 [Second implementation](https://vimeo.com/76784295) fast forwarded 2 times. 
 Outputs: 
 
-```
+```ruby
 class Karate 
 
   def chop(target, values)
@@ -88,7 +88,7 @@ private
 end
 
 
-$ 1 runs, 19 assertions, 0 failures, 0 errors, 0 skips
+#$ 1 runs, 19 assertions, 0 failures, 0 errors, 0 skips
 ```
 
 ## Thoughts
@@ -98,7 +98,7 @@ Repeating, even only twice, unveils improvements to the solution.
 A third implementation would use a new Poro with a reference on the values instead of a nasty `class_eval` on `Array`.
 Something like
 
-```
+```ruby
 
 class BinarySearch
 
@@ -108,7 +108,7 @@ class BinarySearch
 
     def median; ...;end
     def reduce(target); ...; end
-    ...
+    #...
 end
 
 ```
