@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Code kata #2 in ruby"
+title: 'Code kata #2 in ruby'
 date: 2013-10-13 12:38
 comments: true
-categories: 
+categories:
 published: true
 ---
 
 # [Code katas Serie] Karate Chop.
 
-I have been curious to try and implement a [code kata](http://codekatas.org/about.aspx) just to see how valuable it is. 
+I have been curious to try and implement a [code kata](http://codekatas.org/about.aspx) just to see how valuable it is.
 
 ## What is it ?
 
@@ -39,16 +39,13 @@ def test_chop
 end
 ```
 
-
 ## Here is my go
 
-
-
-[Second implementation](https://vimeo.com/76784295) fast forwarded 2 times. 
-Outputs: 
+[Second implementation](https://vimeo.com/76784295) fast forwarded 2 times.
+Outputs:
 
 ```ruby
-class Karate 
+class Karate
 
   def chop(target, values)
     return -1 if values.empty?
@@ -60,13 +57,13 @@ class Karate
 
     return chopped_reduced  == -1 ?
       -1 :
-      values.reduce_index(target) + chopped_reduced 
+      values.reduce_index(target) + chopped_reduced
   end
 
 private
-  
+
   Array.class_eval do
-    def median 
+    def median
       median_index = size / 2 - 1
       ArrayElement.new(median_index, self[median_index])
     end
@@ -76,7 +73,7 @@ private
         slice(0..median.index) :
         slice(median.index + 1..-1)
     end
-    
+
     def reduce_index(target)
       target <= median.value ? 0 : median.index + 1
     end

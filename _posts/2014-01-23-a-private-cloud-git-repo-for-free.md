@@ -3,7 +3,7 @@ layout: post
 title: 'A private cloud git repository, for free !'
 date: 2014-01-23 00:58
 categories: [software, git]
-published: true
+published: false
 ---
 
 So the scenario is this one

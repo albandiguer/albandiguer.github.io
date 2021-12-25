@@ -1,10 +1,7 @@
 all: deps run
 
-new-post:
-	bundle exec jekyll post "new post"
-
-deps:
-	bundle
+# new-post:
+# 	jekyll post "new post"
 
 run:
 	jekyll serve --watch

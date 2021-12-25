@@ -1,0 +1,35 @@
+I"0<p>So the scenario is this one</p>
+
+<ul>
+  <li>you need a private cloud based git repository solution</li>
+  <li>which doesn’t cost anything</li>
+  <li>you don’t like being limited in the number of repositories you can create</li>
+</ul>
+
+<p>Well we can combine the power of Git and <a href="http://dropbox.com">Dropbox</a> !</p>
+
+<h1 id="how-to-do-that-">How to do that ?</h1>
+
+<p>We need a <a href="http://git-scm.com/book/en/Git-on-the-Server-Getting-Git-on-a-Server">bare repository</a> so we can clone from and push there when we want.
+We want it <em>in the cloud</em> so it will be located into our Dropbox directory.
+Here is an example.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git --bare init ~/Dropbox/cloud-git-repositories/my_phd_paper.git
+</code></pre></div></div>
+
+<p>Next we go to our local working directory and we clone</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ~/work/dev
+git clone ~/Dropbox/cloud-git-repositories/my_phd_paper.git
+</code></pre></div></div>
+
+<p>Everytime we push upstream, Dropbox does its magic and synchronize the bare repo online.
+(The logo spins)</p>
+
+<h2 id="share-that-private-repo-with-someone">Share that private repo with someone</h2>
+
+<p>If you want to collaborate, you can share your directory via Dropbox.
+The guest can clone the repository like you did on his own machine.</p>
+
+<p>Time to time a <code class="language-plaintext highlighter-rouge">git fetch</code> will warn them for new changes.</p>
+:ET
