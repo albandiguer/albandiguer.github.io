@@ -1,4 +1,4 @@
-all: deps run
+all: run
 
 # new-post:
 # 	jekyll post "new post"
