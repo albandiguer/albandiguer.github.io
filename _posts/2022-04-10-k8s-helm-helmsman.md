@@ -1,15 +1,15 @@
 ---
 layout: post
-title: 'K8s, Helm, Helmsman'
+title: 'Kubernetes, Helm, Helmsman'
 date: 2022-04-10 18:43
 categories: [devops]
 published: true
 ---
 
-This is a review of a toolchain to deal with k8s as code for CI, CD and audit purpose, namely Helm and Helmsman.
-To demonstrate the toolchain I will deploy [Focalboard](https://www.focalboard.com/), an open source task management board (like Trello if you are familiar).
+This is a review of a toolchain to deal with Kubernetes (k8s) as code for CI, CD and audit purpose, namely Helm and Helmsman.
+To demonstrate the toolchain I will deploy [Focalboard](https://www.focalboard.com/), an open source task management board (like Trello).
 
-# K8s
+# Kubernetes
 
 To kick things off we want a local k8s sandbox cluster. I use `nix-shell` and `minikube`. Here is a nix-shell file to get that.
 
@@ -55,12 +55,12 @@ We now have a local k8s env up and running. We now want to deploy things in the 
 # Helm
 
 > Helm is the best way to find, share, and use software built for [Kubernetes](https://kubernetes.io)
->
+> 
 > Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
 
-> Visit [Artifact Hub](https://artifacthub.io) to explore [Helm charts](https://artifacthub.io/packages/search?kind=0) from numerous public repositories.
+> Visit [Artifact Hub](https://artifacthub.io) to explore [Helm charts](https://artifacthub.io/packages/search?kind=0) public repositories.
 
-In our case we try an existing artifact for Focalboard. Beforehand we add the `helm` tool in our nix derivation
+Great we start by adding that `helm` dependency into our nix derivation
 
 ```nix
 { pkgs ? import <nixpkgs> { } }:
@@ -68,7 +68,7 @@ In our case we try an existing artifact for Focalboard. Beforehand we add the `h
 pkgs.mkShell { buildInputs = [ pkgs.minikube pkgs.kubernetes-helm ]; }
 ```
 
-then add the desired repo and install the chart
+Then we find an existing artifact for Focalboard on the hub and add the public repo to our helm environment.
 
 ```shell
 helm repo add k8s-at-home https://k8s-at-home.com/charts/
@@ -76,9 +76,9 @@ helm repo update
 helm install focalboard k8s-at-home/focalboard
 ```
 
+We get the application URL `http://127.0.0.1:8080` by running the following
+
 ```shell
-1. Get the application URL by running these commands:
-  export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=focalboard,app.kubernetes.io/instance=focalboard" -o jsonpath="{.items[0].metadata.name}")
-  echo "Visit http://127.0.0.1:8080 to use your application"
-  kubectl port-forward $POD_NAME 8080:8000
+export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=focalboard,app.kubernetes.io/instance=focalboard" -o jsonpath="{.items[0].metadata.name}")
+kubectl port-forward $POD_NAME 8080:8000
 ```
