@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 'Kubernetes, Helm, Helmsman'
+title: "Kubernetes, Helm, Helmsman"
 date: 2022-04-10 18:43
 categories: [devops]
-published: true
+published: false
 ---
 
 This is a review of a toolchain to deal with Kubernetes (k8s) as code for CI, CD and audit purpose, namely Helm and Helmsman.
@@ -55,7 +55,7 @@ We now have a local k8s env up and running. We now want to deploy things in the 
 # Helm
 
 > Helm is the best way to find, share, and use software built for [Kubernetes](https://kubernetes.io)
-> 
+>
 > Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
 
 > Visit [Artifact Hub](https://artifacthub.io) to explore [Helm charts](https://artifacthub.io/packages/search?kind=0) public repositories.
