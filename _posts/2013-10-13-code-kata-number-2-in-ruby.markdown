@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Code kata #2 in ruby'
+title: "Code kata #2 in ruby"
 date: 2013-10-13 12:38
 comments: true
 categories:
@@ -13,7 +13,7 @@ I have been curious to try and implement a [code kata](http://codekatas.org/abou
 
 ## What is it ?
 
-It is all about reinventing the wheel, as fast as you can. You are meant to implement a well-known problem or game and repeat it until you are fast and satisfied enough of the solution. The Karate Chop for example is no more, no less than the infamous [binary search algorithm](http://en.wikipedia.org/wiki/Binary_search_algorithm). It comes with a simple spec file, here :
+It is all about reinventing the wheel, as fast as you can. You are meant to implement a well-known problem or game and repeat it until you are fast and satisfied enough with the solution. The Karate Chop for example is no more, no less than a [binary search algorithm](http://en.wikipedia.org/wiki/Binary_search_algorithm). It comes with a simple spec file, here :
 
 ```ruby
 def test_chop
